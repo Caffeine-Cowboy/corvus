@@ -1,0 +1,151 @@
+{
+  "evidence_type": "historical_saved_result_not_rerun",
+  "protocol": "strict zero-shot; checkpoint, orientation and thresholds fixed on astro only",
+  "endpoint": "Supplied ECG record-level binary labels; consult cohort label provenance",
+  "models": {
+    "astro_cnn": {
+      "n": 64,
+      "prevalence": 0.5,
+      "auroc": 0.447265625,
+      "average_precision": 0.6041226254006531,
+      "sensitivity": 0.71875,
+      "specificity": 0.03125,
+      "precision": 0.42592592592592593,
+      "balanced_accuracy": 0.375,
+      "threshold": 0.3510650396347046,
+      "decision_rule": "score > threshold",
+      "tp": 23,
+      "tn": 1,
+      "fp": 31,
+      "fn": 9,
+      "bootstrap": {
+        "unit": "group_id",
+        "groups": 64,
+        "iterations": 500,
+        "valid_replicates": 500,
+        "skipped_replicates": 0,
+        "intervals_95_percent": {
+          "auroc": [
+            0.28536103444310273,
+            0.6017059553349876
+          ],
+          "average_precision": [
+            0.4397725065986077,
+            0.7424634228377927
+          ],
+          "sensitivity": [
+            0.5440909090909091,
+            0.8658108108108108
+          ],
+          "specificity": [
+            0.0,
+            0.1111111111111111
+          ],
+          "balanced_accuracy": [
+            0.2836309523809524,
+            0.4554924242424242
+          ]
+        },
+        "scope": "Sampling uncertainty conditional on this frozen model and selected cohort; not training-seed uncertainty."
+      }
+    },
+    "random_cnn": {
+      "n": 64,
+      "prevalence": 0.5,
+      "auroc": 0.7646484375,
+      "average_precision": 0.7678965989008535,
+      "sensitivity": 0.125,
+      "specificity": 1.0,
+      "precision": 1.0,
+      "balanced_accuracy": 0.5625,
+      "threshold": 0.8024682998657227,
+      "decision_rule": "score > threshold",
+      "tp": 4,
+      "tn": 32,
+      "fp": 0,
+      "fn": 28,
+      "bootstrap": {
+        "unit": "group_id",
+        "groups": 64,
+        "iterations": 500,
+        "valid_replicates": 500,
+        "skipped_replicates": 0,
+        "intervals_95_percent": {
+          "auroc": [
+            0.6388988253126184,
+            0.8705172413793103
+          ],
+          "average_precision": [
+            0.6214988355889113,
+            0.9004997587551303
+          ],
+          "sensitivity": [
+            0.03172883064516129,
+            0.25336538461538444
+          ],
+          "specificity": [
+            1.0,
+            1.0
+          ],
+          "balanced_accuracy": [
+            0.5158644153225806,
+            0.6266826923076922
+          ]
+        },
+        "scope": "Sampling uncertainty conditional on this frozen model and selected cohort; not training-seed uncertainty."
+      }
+    },
+    "crest_factor": {
+      "n": 64,
+      "prevalence": 0.5,
+      "auroc": 0.4296875,
+      "average_precision": 0.540512401943743,
+      "sensitivity": 0.9375,
+      "specificity": 0.0,
+      "precision": 0.4838709677419355,
+      "balanced_accuracy": 0.46875,
+      "threshold": 2.83685040473938,
+      "decision_rule": "score > threshold",
+      "tp": 30,
+      "tn": 0,
+      "fp": 32,
+      "fn": 2,
+      "bootstrap": {
+        "unit": "group_id",
+        "groups": 64,
+        "iterations": 500,
+        "valid_replicates": 500,
+        "skipped_replicates": 0,
+        "intervals_95_percent": {
+          "auroc": [
+            0.2883391702586207,
+            0.5939149560117302
+          ],
+          "average_precision": [
+            0.3885708749213878,
+            0.7136603742763554
+          ],
+          "sensitivity": [
+            0.8472610722610723,
+            1.0
+          ],
+          "specificity": [
+            0.0,
+            0.0
+          ],
+          "balanced_accuracy": [
+            0.42363053613053614,
+            0.5
+          ]
+        },
+        "scope": "Sampling uncertainty conditional on this frozen model and selected cohort; not training-seed uncertainty."
+      }
+    }
+  },
+  "limitations": [
+    "Source probabilities are not calibrated ECG diagnosis probabilities.",
+    "Scores are not inverted or thresholds tuned using ECG outcomes.",
+    "This experiment does not demonstrate a shared latent representation by itself."
+  ],
+  "source_metrics_sha256": "0b7138f46dd6c26c3654d5cf0cbf5229f0859e6ccca654ea3219529befb3f73b"
+}

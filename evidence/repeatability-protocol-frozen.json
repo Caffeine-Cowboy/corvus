@@ -1,0 +1,48 @@
+{
+  "study": "supervised CNN training-seed repeatability on previously observed holdout",
+  "seeds": [
+    17,
+    42,
+    173
+  ],
+  "epochs": 30,
+  "batch_size": 32,
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "weight_decay": 0.01,
+  "gradient_clip_norm": 5.0,
+  "input_length": 1024,
+  "architecture": "TransientCNN",
+  "checkpoint_selection": "lowest validation log loss, earliest epoch on exact ties",
+  "threshold_selection": "validation balanced accuracy; specificity and high threshold tie-break",
+  "test_used_for_selection": false,
+  "cpu_threads": 2,
+  "manifest_sha256": "80660edb33a3f96a980dc7f5c737be465a35b9b347e31535834df453a725c10a",
+  "source_code_sha256": "ab0763f7a4e55ccdf87a0ef2e87927992ef902c837fc4c5c605a14e9408293f6",
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20261010,
+  "split_counts": {
+    "train": {
+      "records": 574,
+      "groups": 574,
+      "positives": 289
+    },
+    "val": {
+      "records": 192,
+      "groups": 192,
+      "positives": 97
+    },
+    "test": {
+      "records": 193,
+      "groups": 193,
+      "positives": 97
+    }
+  },
+  "holdout_status": "already inspected in the historical one-seed lab; no new holdout claim",
+  "software_environment": {
+    "python": "3.12.14",
+    "torch": "2.14.1",
+    "numpy": "2.5.3",
+    "device": "cpu"
+  }
+}

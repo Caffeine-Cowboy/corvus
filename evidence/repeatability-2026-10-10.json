@@ -1,0 +1,304 @@
+{
+  "evidence_type": "new_local_repeatability_rerun_on_previously_observed_holdout",
+  "protocol": {
+    "study": "supervised CNN training-seed repeatability on previously observed holdout",
+    "seeds": [
+      17,
+      42,
+      173
+    ],
+    "epochs": 30,
+    "batch_size": 32,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 5.0,
+    "input_length": 1024,
+    "architecture": "TransientCNN",
+    "checkpoint_selection": "lowest validation log loss, earliest epoch on exact ties",
+    "threshold_selection": "validation balanced accuracy; specificity and high threshold tie-break",
+    "test_used_for_selection": false,
+    "cpu_threads": 2,
+    "manifest_sha256": "80660edb33a3f96a980dc7f5c737be465a35b9b347e31535834df453a725c10a",
+    "source_code_sha256": "ab0763f7a4e55ccdf87a0ef2e87927992ef902c837fc4c5c605a14e9408293f6",
+    "bootstrap_repetitions": 2000,
+    "bootstrap_seed": 20261010,
+    "split_counts": {
+      "train": {
+        "records": 574,
+        "groups": 574,
+        "positives": 289
+      },
+      "val": {
+        "records": 192,
+        "groups": 192,
+        "positives": 97
+      },
+      "test": {
+        "records": 193,
+        "groups": 193,
+        "positives": 97
+      }
+    },
+    "holdout_status": "already inspected in the historical one-seed lab; no new holdout claim",
+    "software_environment": {
+      "python": "3.12.14",
+      "torch": "2.14.1",
+      "numpy": "2.5.3",
+      "device": "cpu"
+    }
+  },
+  "frozen_protocol_sha256": "c92232b6988c415cc8ae828a8119a5e2e899d6e32fa5440c944ba1062c788f2f",
+  "runs": [
+    {
+      "seed": 17,
+      "checkpoint_sha256": "6733da5a5fd8451be692110baaffbdb8070f097bb839dee3820c970d86a51948",
+      "best_epoch": 5,
+      "threshold": 0.46481481194496155,
+      "validation": {
+        "n": 192,
+        "prevalence": 0.5052083333333334,
+        "auroc": 0.9459576776994032,
+        "average_precision": 0.956839782563323,
+        "sensitivity": 0.8556701030927835,
+        "specificity": 0.9368421052631579,
+        "precision": 0.9325842696629213,
+        "balanced_accuracy": 0.8962561041779706,
+        "threshold": 0.46481481194496155,
+        "decision_rule": "score > threshold",
+        "tp": 83,
+        "tn": 89,
+        "fp": 6,
+        "fn": 14
+      },
+      "test": {
+        "n": 193,
+        "prevalence": 0.5025906735751295,
+        "auroc": 0.9538230240549828,
+        "average_precision": 0.9630866734036864,
+        "sensitivity": 0.865979381443299,
+        "specificity": 0.9270833333333334,
+        "precision": 0.9230769230769231,
+        "balanced_accuracy": 0.8965313573883162,
+        "threshold": 0.46481481194496155,
+        "decision_rule": "score > threshold",
+        "tp": 84,
+        "tn": 89,
+        "fp": 7,
+        "fn": 13
+      },
+      "patient_bootstrap": {
+        "unit": "group_id",
+        "groups": 193,
+        "iterations": 2000,
+        "valid_replicates": 2000,
+        "skipped_replicates": 0,
+        "intervals_95_percent": {
+          "auroc": [
+            0.9243774211393728,
+            0.9794775245332119
+          ],
+          "average_precision": [
+            0.9381031752376751,
+            0.9830640687102263
+          ],
+          "sensitivity": [
+            0.7938144329896907,
+            0.9313836898395722
+          ],
+          "specificity": [
+            0.8725490196078431,
+            0.9759246287475483
+          ],
+          "balanced_accuracy": [
+            0.8520962812270007,
+            0.939404965869843
+          ]
+        },
+        "scope": "Sampling uncertainty conditional on this frozen model and selected cohort; not training-seed uncertainty."
+      }
+    },
+    {
+      "seed": 42,
+      "checkpoint_sha256": "a5c2c7333807f0b53c3dad73dce6292ffab2abeb7d41185fba63de73d2420d5a",
+      "best_epoch": 8,
+      "threshold": 0.5870182514190674,
+      "validation": {
+        "n": 192,
+        "prevalence": 0.5052083333333334,
+        "auroc": 0.9540965816603364,
+        "average_precision": 0.9639933463983851,
+        "sensitivity": 0.8556701030927835,
+        "specificity": 0.9263157894736842,
+        "precision": 0.9222222222222223,
+        "balanced_accuracy": 0.8909929462832338,
+        "threshold": 0.5870182514190674,
+        "decision_rule": "score > threshold",
+        "tp": 83,
+        "tn": 88,
+        "fp": 7,
+        "fn": 14
+      },
+      "test": {
+        "n": 193,
+        "prevalence": 0.5025906735751295,
+        "auroc": 0.9579037800687286,
+        "average_precision": 0.9654568245245282,
+        "sensitivity": 0.8762886597938144,
+        "specificity": 0.9375,
+        "precision": 0.9340659340659341,
+        "balanced_accuracy": 0.9068943298969072,
+        "threshold": 0.5870182514190674,
+        "decision_rule": "score > threshold",
+        "tp": 85,
+        "tn": 90,
+        "fp": 6,
+        "fn": 12
+      },
+      "patient_bootstrap": {
+        "unit": "group_id",
+        "groups": 193,
+        "iterations": 2000,
+        "valid_replicates": 2000,
+        "skipped_replicates": 0,
+        "intervals_95_percent": {
+          "auroc": [
+            0.930211932573994,
+            0.9818306451612903
+          ],
+          "average_precision": [
+            0.9396957357507667,
+            0.9850336913817564
+          ],
+          "sensitivity": [
+            0.8085106382978723,
+            0.9393939393939394
+          ],
+          "specificity": [
+            0.8850574712643678,
+            0.9805871919342793
+          ],
+          "balanced_accuracy": [
+            0.862773249543066,
+            0.9477463037634408
+          ]
+        },
+        "scope": "Sampling uncertainty conditional on this frozen model and selected cohort; not training-seed uncertainty."
+      }
+    },
+    {
+      "seed": 173,
+      "checkpoint_sha256": "706990c9929e8859c3b6852c8eac28c377fb7e65d3991caf6f4e5b4e316cfc21",
+      "best_epoch": 8,
+      "threshold": 0.5569201707839966,
+      "validation": {
+        "n": 192,
+        "prevalence": 0.5052083333333334,
+        "auroc": 0.9576776994031471,
+        "average_precision": 0.9655766350582528,
+        "sensitivity": 0.8762886597938144,
+        "specificity": 0.9473684210526315,
+        "precision": 0.9444444444444444,
+        "balanced_accuracy": 0.9118285404232229,
+        "threshold": 0.5569201707839966,
+        "decision_rule": "score > threshold",
+        "tp": 85,
+        "tn": 90,
+        "fp": 5,
+        "fn": 12
+      },
+      "test": {
+        "n": 193,
+        "prevalence": 0.5025906735751295,
+        "auroc": 0.9662800687285223,
+        "average_precision": 0.9719448391799206,
+        "sensitivity": 0.8865979381443299,
+        "specificity": 0.9270833333333334,
+        "precision": 0.9247311827956989,
+        "balanced_accuracy": 0.9068406357388317,
+        "threshold": 0.5569201707839966,
+        "decision_rule": "score > threshold",
+        "tp": 86,
+        "tn": 89,
+        "fp": 7,
+        "fn": 11
+      },
+      "patient_bootstrap": {
+        "unit": "group_id",
+        "groups": 193,
+        "iterations": 2000,
+        "valid_replicates": 2000,
+        "skipped_replicates": 0,
+        "intervals_95_percent": {
+          "auroc": [
+            0.9417801199427139,
+            0.9863640659552859
+          ],
+          "average_precision": [
+            0.9493124800622007,
+            0.9887302185662125
+          ],
+          "sensitivity": [
+            0.8199761904761904,
+            0.946236559139785
+          ],
+          "specificity": [
+            0.8736842105263158,
+            0.9777838827838827
+          ],
+          "balanced_accuracy": [
+            0.8652517979180278,
+            0.9478719367050856
+          ]
+        },
+        "scope": "Sampling uncertainty conditional on this frozen model and selected cohort; not training-seed uncertainty."
+      }
+    }
+  ],
+  "training_seed_variation": {
+    "auroc": {
+      "mean": 0.9593356242840779,
+      "sample_standard_deviation": 0.006350757741593695,
+      "min": 0.9538230240549828,
+      "max": 0.9662800687285223
+    },
+    "average_precision": {
+      "mean": 0.9668294457027118,
+      "sample_standard_deviation": 0.004585830557697289,
+      "min": 0.9630866734036864,
+      "max": 0.9719448391799206
+    },
+    "sensitivity": {
+      "mean": 0.8762886597938144,
+      "sample_standard_deviation": 0.010309278350515427,
+      "min": 0.865979381443299,
+      "max": 0.8865979381443299
+    },
+    "specificity": {
+      "mean": 0.9305555555555557,
+      "sample_standard_deviation": 0.00601406530405858,
+      "min": 0.9270833333333334,
+      "max": 0.9375
+    },
+    "balanced_accuracy": {
+      "mean": 0.9034221076746851,
+      "sample_standard_deviation": 0.005967625189090853,
+      "min": 0.8965313573883162,
+      "max": 0.9068943298969072
+    }
+  },
+  "mean_auroc_patient_bootstrap_95_percent": [
+    0.9328662080706958,
+    0.9820073096774807
+  ],
+  "mean_auroc_bootstrap_valid_replicates": 2000,
+  "mean_auroc_bootstrap_scope": "Patient sampling uncertainty conditional on three frozen seeds and this selected cohort; excludes new-population and training-seed uncertainty",
+  "wall_seconds": 27.12077366700396,
+  "limitations": [
+    "Historical holdout was already observed before this protocol was frozen.",
+    "Three seeds give a descriptive sample SD, not a precise training-seed confidence interval.",
+    "Machine-report weak labels; balanced convenience sampling; one ten-second lead-II recording per patient.",
+    "No external, prospective, clinical, or multimodal validation.",
+    "Exact reruns need locally acquired records; no raw records, record IDs, or individual predictions are distributed."
+  ]
+}

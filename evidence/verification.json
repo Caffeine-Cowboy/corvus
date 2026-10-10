@@ -1,0 +1,44 @@
+{
+  "verified_date": "2026-10-10",
+  "verification_scope": "native macOS arm64; clean standalone Python environment installed from pinned snapshot",
+  "software_environment": {
+    "python": "3.12.14",
+    "torch": "2.14.1",
+    "numpy": "2.5.3",
+    "device": "cpu"
+  },
+  "source_code_sha256": "ab0763f7a4e55ccdf87a0ef2e87927992ef902c837fc4c5c605a14e9408293f6",
+  "requirements_lab_lock_sha256": "dffa8ee188e43a238f588982e7244ebe973bf32f47960673c848db21e33f5b99",
+  "checks": {
+    "test_suite": {
+      "passed": 70,
+      "failed": 0,
+      "notes": "One Starlette/httpx deprecation warning; no failed checks"
+    },
+    "synthetic_smoke": {
+      "passed": true,
+      "clinical_evidence": false
+    },
+    "source_release_audit": {
+      "findings": 0
+    },
+    "three_seed_supervised_rerun": {
+      "completed": true,
+      "seeds": [
+        17,
+        42,
+        173
+      ],
+      "epochs_each": 30,
+      "uses_previously_observed_holdout": true
+    }
+  },
+  "verification_not_claimed": [
+    "remote GitHub Actions",
+    "container execution",
+    "public serving deployment",
+    "fresh data reacquisition",
+    "external or clinical validation",
+    "new ONNX or latency benchmark"
+  ]
+}
